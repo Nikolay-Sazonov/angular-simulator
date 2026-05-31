@@ -74,3 +74,5 @@ const users: IUser[] = [
 const newUser = users.filter ((user) => {
   return user.age < 28;
 });
+
+
