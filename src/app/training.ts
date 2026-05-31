@@ -13,7 +13,7 @@ interface IUser {
   name: string;
   surname: string;
   age: number;
-  city: string;
+  city?: string;
 };
 
 // 7. Создать интерфейс, который расширяется интерфейсом User с задания №6 и имеет свои дополнительные поля.
