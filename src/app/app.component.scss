@@ -1,0 +1,136 @@
+.header {
+  position: absolute;
+  min-width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--minor-color) 30%, transparent);
+}
+
+.header-wrapper {
+  width: 1180px;
+  height: 60px;
+  justify-content: space-between;
+}
+
+.company-wrapper {
+  width: 143px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-company {
+  color: var(--prime-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0.4em;
+}
+
+.header-menu {
+  align-items: center;
+
+  .menu-list {
+    list-style: none;
+    font-style: normal;
+    gap: 24px;
+  }
+
+  .menu-link {
+    color: var(--prime-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+.header-button {
+  width: 158px;
+  height: 44px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: var(--prime-color);
+}
+
+.bg-mountains {
+  position: relative;
+  z-index: -2;
+}
+
+.hero-text {
+  position: absolute;
+  top: 521px;
+  left: 384px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--prime-color);
+  font-size: 35px;
+  min-width: 1080px;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.location-wrapper {
+  width: 270px;
+}
+
+.registration-block {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  min-width: 1180px;
+  min-height: 161px;
+  top: 678px;
+  left: 384px;
+  border-radius: 16px;
+  background-color: color-mix(in srgb, var(--prime-color) 20%, transparent);
+  color: var(--prime-color);
+
+  .registration-form {
+    justify-content: space-between;
+    min-width: 1095px;
+    min-height: 81px;
+    border-radius: 10px;
+    border: 1px;
+    font-style: normal; 
+  }
+
+    .location-wrapper__hint {
+    display: flex;
+    margin-top: 5px;
+    font-size: 14px;
+    font-style: normal;
+     font-weight: 400;
+    margin-left: 8px;
+   }
+}
+
+#hike-date {
+  width: 270px;
+  min-height: 52px;
+  background-color: color-mix(in srgb, var(--prime-color) 0%, transparent);
+  color: var(--prime-color);
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding-left: 10px;
+
+  &::-webkit-calendar-picker-indicator {
+
+    filter: invert(1); 
+    transform: scale(1.5); 
+    cursor: pointer; 
+    margin-right: 10px;
+  }
+}
+
+.search-btn {
+  width: 213px;
+  height: 52px;
+  background-color: rgba(26, 62, 62, 1);
+  color: var(--prime-color);
+  border-radius: 4px;
+}
