@@ -22,7 +22,7 @@ export class Collection<T> {
   };
 }
 
-  const oneCollection = new Collection <string>();
+const oneCollection = new Collection <string>();
 
   export interface Car {
     model: string;
@@ -30,3 +30,4 @@ export class Collection<T> {
   }
 
   const carCollection = new Collection<Car>();
+  
