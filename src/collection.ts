@@ -30,4 +30,3 @@ const oneCollection = new Collection <string>();
   }
 
   const carCollection = new Collection<Car>();
-  
