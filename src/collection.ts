@@ -14,7 +14,7 @@ export class Collection<T> {
   };
 
   deletOneItems(index: number) {
-    return this.items.slice(index, 1);
+    return this.items.splice(index, 1);
   };
 
   replaceByIndex(index: number, newItem: T) {

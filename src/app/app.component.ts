@@ -1,5 +1,6 @@
-import { Color } from '../enusm/Color';
+import { Color } from '../enums/Color';
 import { Component } from '@angular/core';
+import { Collection } from '../collection';
 import './training';
 
 
@@ -11,6 +12,7 @@ import './training';
 })
 export class AppComponent {
     
+  companyName: string = 'румтибет';
     isPrimaryColor(selectedСolor: Color): boolean {
       if(selectedСolor === Color.BLUE || selectedСolor === Color.GREEN || selectedСolor === Color.RED) {
         return true;

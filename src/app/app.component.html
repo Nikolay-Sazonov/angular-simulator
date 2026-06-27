@@ -5,7 +5,7 @@
         <img src="/images/icon/company-icon.svg" alt="иконка компании">
       </div>
       <div class="name-company fs-16">
-        <span >румтибет</span>
+        <span >{{companyName}}</span>
       </div>
     </div>
     <nav class="header-menu flex fs-18">
@@ -26,7 +26,6 @@
     <p class="hero-text">насладитесь прогулкой в горах <br>с командой единомышленников</p>
     <div class="registration-block flex">
       <form class="registration-form flex fs-16">
-
         <div class="location-wrapper flex fd-c gap">
           <div class="select-wrapper">
             <select name="location" id="location" class="location pop-out-windows pl-10 cursor" required>
@@ -37,12 +36,10 @@
           </div>
           <span class="location-wrapper__hint fc-14">выберите из списка</span>
         </div>
-
         <div class="flex fd-c">
           <input type="date" name="hike-date" id="hike-date" class="cursor" required>
           <span class="date-hint c-p flex fs-14 mt-12 ml-8">укажите дату</span>
         </div>
-
         <div class="numder-people-wrapper">
           <div class="select-wrapper">
             <select name="number" id="number" class="number-people pop-out-windows pl-10 cursor" required>
