@@ -13,12 +13,12 @@ import './training';
 export class AppComponent {
     
   companyName: string = 'румтибет';
-    isPrimaryColor(selectedСolor: Color): boolean {
-      if(selectedСolor === Color.BLUE || selectedСolor === Color.GREEN || selectedСolor === Color.RED) {
-        return true;
-      } else {
-        return false;
-      }
+  isPrimaryColor(selectedСolor: Color): boolean {
+    if(selectedСolor === Color.BLUE || selectedСolor === Color.GREEN || selectedСolor === Color.RED) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Далее создать метод, которая сохраняет в локальное хранилище дату последнего захода на страницу. 
