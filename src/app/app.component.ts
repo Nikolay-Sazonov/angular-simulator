@@ -24,7 +24,7 @@ export class AppComponent {
   // Далее создать метод, которая сохраняет в локальное хранилище дату последнего захода на страницу. 
   
   private saveLastCount(): void {
-    const currentDate = new Date ().toLocaleString();
+    const currentDate = new Date ().toLocaleString(); 
     localStorage.setItem('lastDate', currentDate );
   }
 
