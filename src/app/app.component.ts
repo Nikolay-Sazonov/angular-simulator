@@ -4,10 +4,11 @@ import { Collection } from '../collection';
 import './training';
 import { HikeCard } from './interfaces/HikeCard';
 import { FormsModule } from '@angular/forms';
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -15,9 +16,14 @@ export class AppComponent {
     
   locationTour: string = '';
   dataTrip: string = '';
-  numberParticipants: string='';
-  
+  numberParticipants: string ='';
+  valueTimeDate: string = '';
+  changingValue: boolean = true;
+  numberClicks: number = 0;
+  timeUpdate: any = '';
   companyName: string = 'румтибет';
+  isLoading: boolean = true;
+  writtenText: string = '';
   
   hikecards: HikeCard[] = [
     {
@@ -43,6 +49,11 @@ export class AppComponent {
   constructor() {
     this.saveLastCount();
     this.saveVisitcount();
+    this.timeOutput()
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   }
 
   isPrimaryColor(selectedСolor: Color): boolean {
@@ -64,4 +75,27 @@ export class AppComponent {
     const newCount = currentNumberVisit + 1;
     localStorage.setItem('visitCount', newCount.toString());
   }
+
+  
+  subtraction() {
+    if(this.numberClicks >0) {
+      this.numberClicks -= 1;
+    }
+  }
+  
+  addition() {
+    this.numberClicks += 1;
+  }
+  
+  switchingTasks() {
+    this.changingValue = !this.changingValue; 
+  }
+
+  private timeOutput():void {
+    this.valueTimeDate = new Date().toLocaleString('ru-RU');
+    this.timeUpdate  = setInterval (() => {
+      this.valueTimeDate = new Date().toLocaleString('ru-RU');
+    },1000)
+  }
+
 }
