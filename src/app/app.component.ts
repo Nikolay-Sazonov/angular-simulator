@@ -1,5 +1,5 @@
 import { Color } from '../enums/Color';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Collection } from '../collection';
 import './training';
 import { HikeCard } from './interfaces/HikeCard';
@@ -12,7 +12,7 @@ import { NgClass } from "@angular/common";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
     
   locationTour: string = '';
   dataTrip: string = '';
@@ -63,20 +63,13 @@ export class AppComponent {
       return false;
     }
   }
-  
-  private saveLastCount(): void {
-    const currentDate = new Date ().toLocaleString(); 
-    localStorage.setItem('lastDate', currentDate );
-  }
-  
-  private saveVisitcount(): void {
-    const savedCount = localStorage.getItem('visitCount');
-    const currentNumberVisit = savedCount ? parseInt (savedCount, 10) : 0 ;
-    const newCount = currentNumberVisit + 1;
-    localStorage.setItem('visitCount', newCount.toString());
-  }
 
-  
+  ngOnDestroy(): void {
+  if (this.timeUpdate) {
+    clearInterval(this.timeUpdate); 
+  }
+}
+
   subtraction() {
     if(this.numberClicks >0) {
       this.numberClicks -= 1;
@@ -90,6 +83,19 @@ export class AppComponent {
   switchingTasks() {
     this.changingValue = !this.changingValue; 
   }
+  
+  private saveLastCount(): void {
+    const currentDate = new Date ().toLocaleString(); 
+    localStorage.setItem('lastDate', currentDate );
+  }
+  
+  private saveVisitcount(): void {
+    const savedCount = localStorage.getItem('visitCount');
+    const currentNumberVisit = savedCount ? parseInt (savedCount, 10) : 0 ;
+    const newCount = currentNumberVisit + 1;
+    localStorage.setItem('visitCount', newCount.toString());
+  }
+
 
   private timeOutput():void {
     this.valueTimeDate = new Date().toLocaleString('ru-RU');
