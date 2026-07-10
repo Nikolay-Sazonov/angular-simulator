@@ -1,3 +1,8 @@
+@if (isLoading) {
+<div class="loader-container">
+  <img class="loading" src="/images/icon/loading.svg" alt="">
+</div>
+} @else {
 <header class="header flex">
   <div class="header-wrapper flex">
     <div class="company-wrapper ">
@@ -20,15 +25,35 @@
     </nav>
     <button id="header__button" class="header-button cursor">Консультация</button>
   </div>
+
+  <div class="timer flex">
+    @if (changingValue) {
+      <div class="value-time flex fs-18" style="margin-right: 10px;">{{valueTimeDate}}</div>
+    } @else {
+        <div class="clicker flex fs-18" >
+          <button [disabled]="numberClicks === 0" (click)="subtraction()" class="subtraction">-</button>
+          <span >{{numberClicks}}</span>
+          <button (click)="addition()" class="addition">+</button>
+        </div>
+      }
+    <button (click)="switchingTasks()" [ngClass]="changingValue ? 'show-clicker' : 'show-date' ">{{changingValue ? 'покажи кликер' : 'покажи дату'}}</button>
+  </div>
+ 
+  <div class="liveText">
+    <input type="text" id="live-input" [(ngModel)] = "writtenText" class=" fs-18">
+    <p class="fs-16">Тут ваш написанный текст: "{{writtenText}}"</p>
+  </div>
+
 </header>
 <body>
-  <img src="/images/bg/mountains.svg" alt="горы" class="bg-mountains">
+  <div>
+    <img src="/images/bg/mountains.svg" alt="горы" class="bg-mountains">
     <p class="hero-text">насладитесь прогулкой в горах <br>с командой единомышленников</p>
     <div class="registration-block flex">
-      <form class="registration-form flex fs-16">
+      <form class="registration-form flex fs-16" >
         <div class="location-wrapper flex fd-c gap">
           <div class="select-wrapper">
-            <select name="location" id="location" class="location pop-out-windows pl-10 cursor" required>
+            <select [(ngModel)]="locationTour" name="location" id="location" class="location pop-out-windows pl-10 cursor" required>
               <option value="" class="c-p" disabled selected hidden>Локация для тура</option>
               <option value="arshan">Пик любви</option>
               <option value="irkutsk">Гора Витязь</option>
@@ -37,20 +62,63 @@
           <span class="location-wrapper__hint fc-14">выберите из списка</span>
         </div>
         <div class="flex fd-c">
-          <input type="date" name="hike-date" id="hike-date" class="cursor" required>
+          <input [(ngModel)]="dataTrip" type="date" name="hike-date" id="hike-date" class="cursor" required>
           <span class="date-hint c-p flex fs-14 mt-12 ml-8">укажите дату</span>
         </div>
         <div class="numder-people-wrapper">
           <div class="select-wrapper">
-            <select name="number" id="number" class="number-people pop-out-windows pl-10 cursor" required>
-              <option value="participants-number" disabled selected hidden>Участники</option>
-              <option value="quantity">1-3</option>
-              <option value="quantity">3-4</option>
+            <select [(ngModel)]="numberParticipants" name="number" id="number" class="number-people pop-out-windows pl-10 cursor" required>
+              <option value="" disabled selected hidden>Участники</option>
+              <option value="1-3">1-3</option>
+              <option value="3-4">3-4</option>
             </select>
           </div>
           <span class="numder-people-wrapper__hint flex fs-14 mt-12 ml-8">выберите из списка</span>
         </div>
-        <button type="submit cursor" id="search-btn" class="search-btn cursor">Найти прогграмму</button>
+        <button type="submit cursor" id="search-btn" class="btn cursor" [disabled]="!numberParticipants || !dataTrip || !locationTour">Найти прогграмму</button>
       </form>
     </div>
+  </div>
+  <div class="description-hike-wrapper flex" style="height: 985px;">
+    <div class="description-hike flex">
+      <div class="description-hike-images">
+        <img src="/images/photo/photo-ice-mountains.svg" alt="Заснеженые горы" class="mountains flex" style="width: 350px; height: 400px;">
+        <img src="/images/photo/photo-hause-in-forest.svg" alt="Дом в лесу" class="forest" style="width: 350px; height: 400px;">
+        <img src="/images/icon/play.svg" alt="пуск" class="play" style="width: 50px; height: 50px;">
+      </div>
+      <div class="description-hike-text ">
+        <span class="fs-24" style="color: var(--additional-color);">о нашем походе</span>
+        <h2 class="description-hike-text__tiile fs-32">Исследуйте все горные массивы мира вместе с нами</h2>
+        <p class="description-hike-text__infommation fs-18" >Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.</p>
+        <button type="submit cursor" id="program-btn" class="btn cursor" style="bottom: 0%; position: absolute;" >Программа тура</button>
+      </div>
+    </div>
+  </div>
+  <div class="offers-section flex">
+    <div class="offers-section__info flex">
+      <div class="offers-section__description description ">
+        <span class="fs-24" style="color: var(--additional-color);">наше предложение</span>
+        <h2 class="description-offer__titel fs-32" >Лучшие программы для тебя</h2>
+      </div>
+      <p>Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.</p>
+      @for (hikecard of hikecards; track hikecard.id) {
+        <div class="hike-card__wrapper flex">
+          <img src="{{hikecard.image}}" alt="" style="height: 100%;">
+          <div>
+            {{hikecard.name}}
+            {{hikecard.description}}
+          </div>
+        </div>
+      }
+       <button type="submit cursor" id="price-program-btn" class="btn cursor" style="bottom: 0%; position: absolute;" >Стоимость программ</button>
+    </div>
+    <div class="offers-section__img flex">
+      <img src="/images/photo/hand-glass.svg" alt="" class="size-photo">
+      <img src="/images/photo/man-in-career.svg" alt="" class="size-photo">
+      <img src="/images/photo/man-on-snowmobile.svg" alt="" class="size-photo">
+      <img src="/images/photo/creek.svg" alt="" class="size-photo">
+    </div>
+
+  </div>
 </body>
+}

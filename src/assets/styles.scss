@@ -32,6 +32,14 @@
   font-size: 18px;
 }
 
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-32 {
+  font-size: 32px;
+}
+
 .fd-c {
   flex-direction: column;
 }
@@ -66,4 +74,30 @@
 
 .cursor {
   cursor: pointer;
+}
+
+.btn {
+  width: 213px;
+  height: 52px;
+  background-color: rgba(26, 62, 62, 1);
+  color: var(--prime-color);
+  border-radius: 4px;
+}
+
+.description {
+  flex-wrap: wrap;
+  min-height: 66px;
+  width: 580px;
+}
+
+.size-photo {
+  width: 250px;
+  height: 250px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  border-color: #aaaaaa;
 }

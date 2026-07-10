@@ -27,7 +27,6 @@ interface ICarUser extends IUser {
   function sumNumbers (one: number, two: number): number {
      return one + two;
   }
-  console.log(sumNumbers(1, 2)); 
 
 // 8. Создать функцию, которая принимает строку и вариант,  как именно форматировать строку (задание №5) и на основе этого возвращает форматированную строку.
 
