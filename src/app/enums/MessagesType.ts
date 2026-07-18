@@ -4,4 +4,3 @@ export enum MessageType {
   Warn = 'Warn',
   Error = 'Error'
 }
-

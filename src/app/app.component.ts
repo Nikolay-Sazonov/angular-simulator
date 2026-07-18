@@ -20,9 +20,9 @@ export class AppComponent implements OnDestroy {
 
   messageService:MessageManagementService = inject(MessageManagementService);
   LocalStorageService: LocalStorageService = inject(LocalStorageService);
-  locationTour!: string;
+  locationTour: string = '';
   dataTrip!: string;
-  numberParticipants!: string;
+  numberParticipants: string = '';
   valueTimeDate!: string;
   timeUpdate!: any;
   writtenText!: string;
