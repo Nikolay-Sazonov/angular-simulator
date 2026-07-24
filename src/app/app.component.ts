@@ -8,7 +8,7 @@ import { DestinationsCard } from './interfaces/DestinationsCard';
 import { ImpressionCard } from './interfaces/ImpressionCards';
 import { MessageManagementService } from './servis/message-management.service';
 import { LocalStorageService } from './servis/local-storage.service';
-import { MessageType } from './enums/MessagesType';
+import { MessageType } from '../enums/MessagesType';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,7 @@ export class AppComponent implements OnDestroy {
 
   messageService:MessageManagementService = inject(MessageManagementService);
   LocalStorageService: LocalStorageService = inject(LocalStorageService);
+  
   locationTour: string = '';
   dataTrip!: string;
   numberParticipants: string = '';
