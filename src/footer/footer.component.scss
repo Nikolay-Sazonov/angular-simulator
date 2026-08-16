@@ -1,0 +1,171 @@
+.footer-wrapper{
+  position: relative;
+  background-color:  rgba(26, 62, 62, 1);
+  justify-content: center;
+  bottom: 0px;
+  height: 587px;
+
+  .explanation-name-wrapper {
+    width: 480px;
+    height: 263px;
+    color: var(--prime-color);
+    flex-direction: column;
+    margin-top: 178px;
+
+    &__text {
+      width: 447px;
+      margin-top: 17px;
+      margin-bottom: 80px;
+      font-weight: 300;
+ 
+    }
+
+    .explanation-name-wrapper__title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .explanation-name-wrapper__info {
+      gap: 24px;
+      a {
+        color: var(--prime-color);
+        font-weight: 300;
+      }
+    }
+  }
+
+  .services-block {
+    color: var(--prime-color);
+    width: 280px;
+    margin-left: 10px;
+    margin-top: 178px;
+
+    .services-title {
+      margin-top: 0px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .services-list {
+      flex-direction: column;
+      gap: 12px;
+      font-weight: 300;
+      padding: 0;
+    }
+
+    .services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .services-list li::before {
+      content: "›";
+      font-size: 16px;
+    }
+  }
+
+  .travel-information {
+    color: var(--prime-color);
+    width: 280px;
+    margin-top: 178px;
+    margin-left: 120px;
+
+    &__title {
+      margin-top: 0px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .travel-information__list {
+      flex-direction: column;
+      gap: 12px;
+      font-weight: 300;
+      padding: 0;
+    }
+
+    .travel-information__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .travel-information__list li::before {
+      content: "›";
+      font-size: 16px;
+    }
+  }
+
+  .footer-bottom {
+    position: absolute;
+    width: 100%;
+    height: 66px;
+    bottom: 0px;
+    z-index: 2;
+    background-color: rgba(24, 18, 30, 1);
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+      text-decoration: none;
+      color: var(--prime-color);
+      width: 1180px;
+      justify-content: space-between;
+      a {
+        color: var(--prime-color);
+      }
+    }
+  }
+
+  .additional-footer {
+    position: absolute;
+    width: 1180px;
+    height: 196px;
+    top: -100px;
+    background-color: var(--prime-color);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__title {
+      width: 380px;
+      height: 90px;
+    
+    }
+
+    .additional-footer__infomation-block {
+      width: 536px;
+      flex-wrap: wrap;
+
+      .infomation-block__text {
+        font-weight: 600;
+
+        a {
+          color: var(--minor-color);
+        }
+      }
+
+      .data-mail {
+        position: relative;
+        flex-wrap: nowrap;
+        width: 100%;
+
+        .data-mail__input {
+          width: 280px;
+          height: 44px;
+          padding: 0px 16px;
+          background: #F3F5F4;
+          border-radius: 4px;
+          border: 0;
+        }
+
+        &__btn {
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          height: 44px;
+        }
+      }
+    }
+  }
+}

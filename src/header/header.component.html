@@ -1,0 +1,37 @@
+<header class="header flex container">
+  <div class="header-wrapper flex">
+    <div class="company-wrapper ">
+      <div class="img-company">
+        <img src="/images/icon/company-icon.svg" alt="иконка компании" >
+      </div>
+      <div class="name-company fs-16">
+        <span >{{companyName}}</span>
+      </div>
+    </div>
+    <nav class="header-menu flex fs-18">
+      <ul class="menu-list c-p flex">
+        @for (directions of mainLink; track directions.link) {
+          <li>
+            <a [routerLink]="directions.link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">{{directions.name}}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <button id="header__button" class="header-button cursor">Консультация</button>
+    <div class="timer flex">
+      @if (changingValue) {
+        <div class="value-time flex fs-18" style="margin-right: 10px;">{{valueTimeDate}}</div>
+      } @else {
+          <div class="clicker flex fs-18" >
+            <button [disabled]="numberClicks === 0" (click)="subtraction()" class="subtraction">-</button>
+            <span >{{numberClicks}}</span>
+            <button (click)="addition()" class="addition">+</button>
+          </div>
+        }
+      <button (click)="switchingTasks()" [ngClass]="changingValue ? 'show-clicker' : 'show-date' ">{{changingValue ? 'покажи кликер' : 'покажи дату'}}</button>
+    </div>
+  </div>
+  <div class="liveText">
+    <input type="text" id="live-input" [(ngModel)]="writtenText" class="fs-18" style="background-color: rgb(113, 52, 171);">
+    <p class="fs-16">Тут ваш написанный текст: "{{writtenText}}"</p>
+  </div>
