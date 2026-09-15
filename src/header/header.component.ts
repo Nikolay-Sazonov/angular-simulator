@@ -75,5 +75,5 @@ export class HeaderComponent {
       this.valueTimeDate = new Date().toLocaleString('ru-RU');
     },1000)
   }
-
+ 
 }

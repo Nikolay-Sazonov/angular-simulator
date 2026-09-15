@@ -1,3 +1,80 @@
-<section class="user-conteiner">
-  <h1 class="fs-32" style="margin-top: 100px;">Здесь должны быть пользователи</h1>
+<section class="users flex">
+  <h1 class="user__title">Список Пользователей</h1>
+  <div class="conteiner flex">
+  @for (user of (userService.users$ | async); track user.id) {
+    <div class="user-card flex">
+      <div class="user-card__header">
+        <h2 class="user-card__header-name">{{user.name}}</h2>
+        <span class="user-card__header-username">&#64;{{user.username}}</span>
+      </div>
+
+      <div class="user-card__wrapper">
+        <span class="user-card__wrapper-title">контакты</span>
+        <div class="user-card__row">
+          <span class="user-card__label">Эл.почта</span>
+          <a class="user-card__value" href="mailto:{{user.email}}" style="color: var(--user-color);">{{user.email}}</a>
+        </div>
+        <div class="user-card__row">
+          <span class="user-card__label">Телефон:</span>
+          <a class="user-card__value" href="tel:{{user.phone}}" style="color: var(--minor-color);">{{user.phone}}</a>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Веб-сайт:</span>
+          <a class="user-card__value" href="http://{{user.website}}" rel="noopener" style="color: var(--user-color);">{{user.website}}</a>
+        </div>
+
+        <span class="user-card__wrapper-title">адрес проживания</span>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Город:</span>
+          <span class="user-card__value">{{user.address.city}}</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Улица:</span>
+          <span class="user-card__value">{{user.address.street}}</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Офис:</span>
+          <span class="user-card__value">{{user.address.suite}}</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Индекс:</span>
+          <span class="user-card__value">{{user.address.zipcode}}</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Координаты:</span>
+          <div class="user-card__geo flex">
+              <span class="user-card__geo-item">{{user.address.geo.lat}}</span>
+              <span class="user-card__geo-item">{{user.address.geo.lng}}</span>
+          </div>
+        </div>
+
+        <span class="user-card__wrapper-title">место работы</span>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Компания:</span>
+          <span class="user-card__value">{{user.company.name}}</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Миссия:</span>
+          <span class="user-card__value" style="color: #667c7c;">"{{user.company.catchPhrase}}"</span>
+        </div>
+
+        <div class="user-card__row">
+          <span class="user-card__label">Специализация:</span>
+          <span class="user-card__value">{{user.company.bs}}</span>
+        </div>
+
+      </div>
+    </div>
+  }@empty {
+    <div class="error">Нет пользователей для отображения</div>
+  }
+  </div>
 </section>

@@ -1,18 +1,16 @@
 import { Color } from '../enums/Color';
-import { Component, inject, OnDestroy } from '@angular/core';
-import { Collection } from '../collection';
+import { Component, inject } from '@angular/core';
 import { HikeCard } from '../app/interfaces/HikeCard';
 import { FormsModule } from '@angular/forms';
-import { NgTemplateOutlet } from '@angular/common';
 import { DestinationsCard } from '../app/interfaces/DestinationsCard';
 import { ImpressionCard } from '../app/interfaces/ImpressionCards';
 import { MessageManagementService } from '../app/servis/message-management.service';
 import { LocalStorageService } from '../app/servis/local-storage.service';
-import { MessageType } from '../enums/MessagesType';
+
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule, NgTemplateOutlet],
+  imports: [FormsModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
@@ -102,22 +100,6 @@ export class HomePageComponent {
  
   constructor() {
 
-  }
-
-   tourProgramBtnClick() {
-    this.messageService.addMessage('Программа недоступна',MessageType.Warn)
-   }
- 
-  outCostBtnClick() {
-    this.messageService.addMessage('Стоимость отправлена на почту', MessageType.Info);
-  }
- 
-  destinationRatingBtnClick(){
-    this.messageService.addMessage('Направления получены',MessageType.Success);
-  }
- 
-  materialsBtnClick(){
-    this.messageService.addMessage('Материалы недоступны',MessageType.Error);
   }
  
   isPrimaryColor(selectedСolor: Color): boolean {

@@ -4,7 +4,10 @@
 </div>
 } @else {
 <app-header></app-header>
+<button (click)="showLoaderTest()" style="position: absolute;">Показать спиннер</button>
+<app-loader></app-loader>
 <router-outlet></router-outlet>
+<app-message></app-message>
 <app-footer></app-footer>
 }
 
