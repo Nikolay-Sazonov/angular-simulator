@@ -1,0 +1,21 @@
+<div class="messages-container">
+  @for (message of (messageManagementService.messages$ | async); track message.id) {
+    <ng-container [ngTemplateOutlet]="messageTemplate" [ngTemplateOutletContext]="{$implicit: message}"></ng-container>
+  }
+</div>
+
+<ng-template #messageTemplate let-msg>
+ <div class="message-template-wrapper flex">
+    <img src="/images/icon/envelope.svg" alt="Иконка конверт" style="margin-left: 15px;">
+    <div class="message-template-wrapper__text">
+      <span class="fs-16" style="font-weight: 700;">{{msg.type}}</span>
+      <p class="fs-14" style="font-weight: 400;">{{msg.text}}</p>
+    </div>
+    <button button class="close-circle-btn" (click)="messageManagementService.closeMessage(msg.id)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" stroke-dasharray="60 100" transform="rotate(-90 12 12)"/>
+        <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+</ng-template>
