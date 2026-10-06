@@ -1,0 +1,97 @@
+<form  class="registration-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <h2 class="registration-form__title">Регистрация пользователя</h2>
+  <h3 class="registration-form__title-block">контакты</h3>
+  <div class="registration-form__row flex">
+    <label for="name" class="registration-form__label">Имя</label>
+    <input type="text" id="name" formControlName="name">
+    @if (form.get('name')?.invalid && form.get('name')?.touched) {
+      <span class="error">Обязательное поле</span>
+    }
+  </div>
+  <div class="registration-form__row flex">
+    <label for="username" class="registration-form__label">username</label>
+    <input type="text" id="username" formControlName="username">
+    @if (form.get('username')?.invalid && form.get('username')?.touched) {
+      <span class="error">Обязательное поле</span>
+    }
+  </div>
+  <div class="registration-form__row flex">
+    <label for="email" class="registration-form__label">Эл.почта</label>
+    <input type="text" id="email" formControlName="email">
+    @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+      <span class="error">Обязательное поле</span>
+    }
+    @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+      <span class="error">Введите корректный email</span>
+    }
+  </div>
+  <div class="registration-form__row flex">
+    <label for="phone" class="registration-form__label">Телефон</label>
+    <input type="text" id="phone" formControlName="phone">
+    @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+      <span class="error">Обязательное поле</span>
+    }
+  </div>
+  <div class="registration-form__row flex">
+    <label for="website" class="registration-form__label">Веб-сайт</label>
+    <input type="text" id="website" formControlName="website">
+  </div>
+  <h3 class="registration-form__title-block">адрес</h3>
+  <div formGroupName="address">
+    <div class="registration-form__row flex">
+      <label for="address-city" class="registration-form__label">Город</label>
+      <input type="text" id="address-city" formControlName="city">
+      @if (form.get('address.city')?.invalid && form.get('address.city')?.touched) {
+        <span class="error">Обязательное поле</span>
+      }
+    </div>
+    <div class="registration-form__row flex">
+      <label for="address-street" class="registration-form__label">Улица</label>
+      <input type="text" id="address-street" formControlName="street">
+      @if (form.get('address.street')?.invalid && form.get('address.street')?.touched) {
+        <span class="error">Обязательное поле</span>
+      }
+    </div>
+    <div class="registration-form__row flex">
+      <label for="address-suite" class="registration-form__label">Офис</label>
+      <input type="text" id="address-suite" formControlName="suite">
+    </div>
+    <div class="registration-form__row flex">
+      <label for="address-zipcode" class="registration-form__label">Индекс</label>
+      <input type="text" id="address-zipcode" formControlName="zipcode">
+      @if (form.get('address.zipcode')?.invalid && form.get('address.zipcode')?.touched) {
+        <span class="error">Обязательное поле</span>
+      }
+    </div>
+    <h3 class="registration-form__title-block">координаты</h3>
+    <div class="registration-form__row flex">
+      <span for="address-geo" class="registration-form__label">Координаты</span>
+      <div class="coordinates" formGroupName="geo">
+      <input type="text" id="address-geo-lat" formControlName="lat" style="width: 80px;">
+      <input type="text" id="address-geo-lng" formControlName="lng" style="width: 80px;">
+      @if (form.get('address.geo.lng')?.invalid && form.get('address.geo.lng')?.touched) {
+        <span class="error">Обязательное поле</span>
+      }
+      </div>
+    </div>
+  </div>
+  <h3 class="registration-form__title-block">компания</h3>
+  <div formGroupName="company">
+    <div class="registration-form__row flex">
+      <label for="company-name" class="registration-form__label">Название компании</label>
+      <input type="text" id="company-name" formControlName="name">
+      @if (form.get('company.name')?.invalid && form.get('company.name')?.touched) {
+        <span class="error">Обязательное поле</span>
+      }
+    </div>
+    <div class="registration-form__row flex">
+      <label for="company-catchPhrase" class="registration-form__label">Миссия</label>
+      <input type="text" id="company-catchPhrase" formControlName="catchPhrase">
+    </div>
+    <div class="registration-form__row flex">
+      <label for="company-bs" class="registration-form__label">Специализация</label>
+      <input type="text" id="company-bs" formControlName="bs">
+    </div>
+  </div>
+  <button type="submit" id="user-submit">Создать пользователя</button>
+</form>
