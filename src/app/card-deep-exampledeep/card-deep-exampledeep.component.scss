@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background-color: #fdf2f8;
+  border: 2px solid #ec4899;
+  border-radius: 12px;
+}
+:host ::ng-deep {
+  .custom-deep-card {
+    .p-card {
+      background: linear-gradient(135deg, #fff 0%, #fce7f3 100%);
+      border: 2px solid #f472b6;
+      box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3);
+    }
+
+    .p-card-title {
+      color: #be185d;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .p-card-subtitle {
+      color: #db2777;
+    }
+    
+    .p-card-footer {
+      border-top: 1px dashed #f472b6;
+      padding-top: 1rem;
+    }
+  }
+}
