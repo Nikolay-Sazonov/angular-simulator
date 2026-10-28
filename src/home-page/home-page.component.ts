@@ -6,11 +6,12 @@ import { DestinationsCard } from '../app/interfaces/DestinationsCard';
 import { ImpressionCard } from '../app/interfaces/ImpressionCards';
 import { MessageManagementService } from '../app/servis/message-management.service';
 import { LocalStorageService } from '../app/servis/local-storage.service';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCirclePlay, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
@@ -22,6 +23,8 @@ export class HomePageComponent {
   locationTour: string = '';
   dataTrip!: string;
   numberParticipants: string = '';
+
+  faCirclePlay: IconDefinition = faCirclePlay;
   
   hikecards: HikeCard[] = [
     {

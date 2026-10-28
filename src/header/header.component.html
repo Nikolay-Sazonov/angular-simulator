@@ -8,6 +8,16 @@
         <span >{{companyName}}</span>
       </div>
     </div>
+    <div>
+      <p-selectButton 
+      [options]="themeOptions"
+      [(ngModel)]="selectedTheme"
+      optionLabel="label"
+      optionValue="value"
+      (onChange)="onThemeChange($event.value)"
+      [allowEmpty]="false">
+      </p-selectButton>
+    </div>
     <nav class="header-menu flex fs-18">
       <ul class="menu-list c-p flex">
         @for (directions of mainLink; track directions.link) {
@@ -34,4 +44,8 @@
   <div class="liveText">
     <input type="text" id="live-input" [(ngModel)]="writtenText" class="fs-18" style="background-color: rgb(113, 52, 171);">
     <p class="fs-16">Тут ваш написанный текст: "{{writtenText}}"</p>
+    <div class="flex" style="justify-content: space-between; width: 120px;">
+      <p-toggleswitch [ngModel]="(themeService.theme$ | async) === 'dark'" (ngModelChange)="onThemeToggle($event)"></p-toggleswitch>
+      <span>Cмена темы</span>
+    </div>
   </div>

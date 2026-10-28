@@ -8,7 +8,6 @@ import { MessegeComponent } from '../message/message.component';
 import { LoaderService } from './servis/loader.service';
 import { LoaderComponent } from "../loader/loader.component";
 
-
 @Component({
   selector: 'app-root',
   imports: [FooterComponent, HeaderComponent, RouterOutlet, MessegeComponent, LoaderComponent],
@@ -17,10 +16,10 @@ import { LoaderComponent } from "../loader/loader.component";
 })
 export class AppComponent implements OnDestroy {
 
+  
   messageService:MessageManagementService = inject(MessageManagementService);
   localStorageService: LocalStorageService = inject(LocalStorageService);
-  loaderService: LoaderService = inject(LoaderService);
-  
+  loaderService: LoaderService = inject(LoaderService);  
 
   valueTimeDate!: string;
   timeUpdate!: any;
