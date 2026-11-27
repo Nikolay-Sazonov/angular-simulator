@@ -1,6 +1,11 @@
 <section class="users flex">
   <h1 class="user__title">Список Пользователей</h1>
-  <button class="btn cursor" id="open-create-modal" style="left: 0; position: absolute;" (click)="openCreateModal()">Создать пользователя</button>
+  <button class="btn cursor" id="open-create-modal" style="left: 15px; top: 201px; position: absolute;" (click)="openCreateModal()" boldHover>Создать пользователя</button>
+  
+  <div class="users-count">
+    Всего: {{ (userService.users$ | async)?.length || 0 }} {{ (userService.users$ | async)?.length || 0 | plural:'пользователь':'пользователя':'пользователей' }}
+  </div>
+  
   <div class="container flex">
     @for (user of filteredUsers$ | async; track user.id) {
       <app-user-card [user]="user" (delete)="onDeleteUser($event)"></app-user-card>

@@ -6,10 +6,13 @@ import { UserCreateComponent } from '../app/user-create/user-create.component';
 import { User } from '../app/interfaces/User';
 import { UsersFilterComponent } from '../app/users-filter/users-filter.component';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
+import { PluralPipe } from '../app/plural.pipe';
+import { BoldHoverDirective } from '../app/bold-hover.directive';
+
 
 @Component({
   selector: 'app-users-page',
-  imports: [AsyncPipe, UserCardComponent, UserCreateComponent, UsersFilterComponent],
+  imports: [AsyncPipe, BoldHoverDirective, UserCardComponent, UserCreateComponent, UsersFilterComponent, PluralPipe],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })

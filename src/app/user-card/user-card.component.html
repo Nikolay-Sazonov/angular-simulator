@@ -1,6 +1,6 @@
-<div class="user-card flex">
+<div class="user-card flex" appAnimatedGradient [GradientConfiguration]="{colors: ['#ff8a00', '#e52e71']}">
   <div class="user-card__header">
-    <h2 class="user-card__header-name">{{user.name}}</h2>
+    <h2 class="user-card__header-name">{{user.name | uppercase}}</h2>
     <span class="user-card__header-username">&#64;{{user.username}}</span>
   </div>
   <div class="user-card__wrapper">
@@ -11,7 +11,7 @@
     </div>
     <div class="user-card__row">
       <span class="user-card__label">Телефон:</span>
-      <a class="user-card__value" href="tel:{{user.phone}}" style="color: var(--minor-color);">{{user.phone}}</a>
+      <a class="user-card__value" href="tel:{{user.phone}}" style="color: var(--minor-color);">{{user.phone | phoneFormat: 'national'}}</a>
     </div>
     <div class="user-card__row">
       <span class="user-card__label">Веб-сайт:</span>
@@ -55,5 +55,5 @@
       <span class="user-card__value">{{user.company.bs}}</span>
     </div>
   </div>
-  <button id="deleteBtn" class="deleteBtn cursor" type="button" (click)="onDelete()">Удалить пользователя</button>
+  <button id="deleteBtn" class="deleteBtn cursor" type="button" (click)="onDelete()" boldHover>Удалить пользователя</button>
 </div>
