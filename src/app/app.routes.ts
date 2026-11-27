@@ -5,8 +5,20 @@ import { NotFoundPageComponent } from '../not-found-page/not-found-page.componen
 import { UserCreateComponent } from './user-create/user-create.component';
 
 export const routes: Routes = [
-  {path: '', component: HomePageComponent },
-  {path: 'users', component: UsersPageComponent},
-  {path: 'us', component: UserCreateComponent},
-  {path: '**', component: NotFoundPageComponent},
+  {
+    path: '',
+    loadComponent: () => import('../home-page/home-page.component').then((m) => m.HomePageComponent)
+  },
+  {
+    path: 'users',
+    loadComponent: () => import('../users-page/users-page.component').then((m) => m.UsersPageComponent)
+  },
+  {
+    path: 'us', 
+    loadComponent: () => import('./user-create/user-create.component').then((m) => m.UserCreateComponent)
+  },
+  {
+    path: '**',
+    loadComponent: () => import('../not-found-page/not-found-page.component').then((m) => m.NotFoundPageComponent)
+  },
 ];

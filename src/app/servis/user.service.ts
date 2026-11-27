@@ -36,8 +36,10 @@ export class UserService {
     this.loaderService.showLoader();
     return this.userApiService.getUser().pipe(
       tap ((users) => this.setUsers(users)),
-      catchError(( ) => {
-        this.messageManagementService.addMessage('Ошибка загрузки пользователей', MessageType.Error);
+      catchError((error) => {
+        if (error.status < 500 && error.status !== 0) {
+          this.messageManagementService.addMessage('Ошибка загрузки пользователей', MessageType.Error);
+        }
         return of([]);
       }),
 
